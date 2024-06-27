@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  node:
+    image: ms-account-app
+    container_name: ms-account-app
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: .docker/local/Dockerfile
+    environment:
+      - ./.env
+    volumes:
+      - .:/usr/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    networks:
+      - ms-account-network
+  mysql:
+    image: mysql:8.0
+    container_name: ms-account-mysql
+    restart: on-failure
+    environment:
+      MYSQL_DATABASE: 'ms_account'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - "3306:3306"
+    networks:
+      - ms-account-network
+
+networks:
+  ms-account-network:
+    driver: bridge
