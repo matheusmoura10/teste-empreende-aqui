@@ -18,8 +18,8 @@ Siga as instruções abaixo para configurar e executar o MS Account App localmen
 
 ### 1. Clone o Repositório
 ```bash
-git clone https://github.com/seu-usuario/ms-account-app.git
-cd ms-account-app
+git clone https://github.com/matheusmoura10/teste-empreende-aqui.git
+cd teste-empreende-aqui
 ```
 
 ### 2. Inicie os Containers Docker
